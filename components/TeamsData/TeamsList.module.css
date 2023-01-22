@@ -1,0 +1,19 @@
+.teamsList {
+  list-style: none;
+  max-height: 50rem;
+  overflow: scroll;
+}
+
+.teamsList li img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.teamsList li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}

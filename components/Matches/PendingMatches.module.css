@@ -1,0 +1,17 @@
+.matches {
+  list-style: none;
+  width: 100vw;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem 2rem;
+}
+
+.matches-container {
+  width: 100vw;
+}
+
+.addMatchButton {
+  margin: 0 auto;
+}

@@ -1,0 +1,57 @@
+.form {
+  height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.form input {
+  border: none;
+  font-size: 2.4rem;
+  width: max-content;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #999;
+}
+
+.form input::placeholder {
+  text-align: center;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.teams {
+  display: flex;
+  gap: 10rem;
+}
+
+.teams > div {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 8rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(160, 160, 160);
+  padding: 5rem;
+  border-radius: 100%;
+  position: relative;
+}
+
+.teams > div::after {
+  content: "Select Team";
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  font-size: 1.6rem;
+  color: rgb(152, 152, 152);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}

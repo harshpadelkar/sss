@@ -1,0 +1,52 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  max-width: 50rem;
+  margin: 6rem auto;
+
+  padding: 6rem;
+  color: #fac02e;
+  font-size: 1.8rem;
+
+  background-color: #20232a;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form input {
+  border: none;
+  font-size: 2.4rem;
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.5rem 2rem;
+  color: #fff;
+  border-bottom: 2px solid #fac02e;
+  background-color: #20232a;
+}
+
+.form input,
+.form label {
+  display: block;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form .create-btn {
+  background-color: #fac02e;
+  color: #20232a;
+}
+
+@media (max-width: 25em) {
+  .form {
+    padding: 4rem;
+  }
+
+  .form .create-btn {
+    font-size: 1.8rem;
+  }
+}
