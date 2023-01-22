@@ -10,15 +10,17 @@ const Team = (props) => {
     if (props.name.length < 11) {
       setTeamName(<p>{props.name}</p>);
     } else {
-      const FinalTeamName = props.name.split(" ").map((word) => <p>{word}</p>);
+      const FinalTeamName = props.name
+        .split(" ")
+        .map((word, i) => <p key={i}>{word}</p>);
       setTeamName(FinalTeamName);
     }
   };
 
-  useEffect(teamNameConverter, []);
+  useEffect(teamNameConverter, [props.name]);
 
   return (
-    <li className={styles.team} onClick={props.onClick}>
+    <li key={props.key} className={styles.team} onClick={props.onClick}>
       <Image alt="team logo" className={styles.image} src={teamLogo} />
       <div className={styles.teamName}>{teamName}</div>
     </li>
