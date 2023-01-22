@@ -5,7 +5,7 @@ import styles from "./EditTeamsForm.module.css";
 const teamNames = [
   {
     key: "m1",
-    name: "Ekvira Xi",
+    name: "Ekvira Xi Bhandup East dasdadad adsadad adadad",
   },
   {
     key: "m2",
@@ -13,6 +13,34 @@ const teamNames = [
   },
   {
     key: "m3",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m4",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m5",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m6",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m8",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m7",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m9",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m10",
     name: "Ekvira Xi",
   },
 ];

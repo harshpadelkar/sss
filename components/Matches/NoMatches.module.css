@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 2rem;
   height: calc(100vh - 9.6rem);
+  text-align: center;
 }
 
 .noMatches h1 {

@@ -1,7 +1,3 @@
-.container {
-  margin-top: 6rem;
-}
-
 .teams {
   height: calc(100vh - 9.6rem);
   position: relative;

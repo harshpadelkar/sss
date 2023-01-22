@@ -10,12 +10,10 @@ const NoMatches = (props) => {
     <DivContainer>
       <div className={styles.noMatches}>
         <Image
-          style={{ color: "white" }}
           src={logo}
           alt="Picture of the author"
           width={300}
           className={styles.logo}
-          // height={80}
         />
         <h1>{props.message}</h1>
         <p>{props.description}</p>
