@@ -1,6 +1,6 @@
 .teams {
   height: calc(100vh - 9.6rem);
-  position: relative;
+  /* position: relative; */
 }
 
 .team-list {
@@ -23,7 +23,9 @@
 
 .create-team--Btn {
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
+  /* bottom: 0; */
+  position: fixed;
   bottom: 0;
   background-color: #009788;
   color: #fff;

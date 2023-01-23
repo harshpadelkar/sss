@@ -43,6 +43,30 @@ const teamNames = [
     key: "m10",
     name: "Ekvira Xi",
   },
+  {
+    key: "m11",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m12",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m13",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m14",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m105",
+    name: "Ekvira Xi",
+  },
+  {
+    key: "m106",
+    name: "Ekvira Xi",
+  },
 ];
 
 const EditTeamsForm = (props) => {
