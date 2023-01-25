@@ -4,10 +4,15 @@ import teamLogo from "../assets/team-logo.png";
 import Image from "next/image";
 
 const Team = (props) => {
+  const clickHandler = () => {
+    props.teamAHandler({ name: props.name, id: props.id, logo: teamLogo });
+    props.teamBHandler({ name: props.name, id: props.id, logo: teamLogo });
+  };
+
   return (
     <li
       className={props.className ? props.className : styles.team}
-      onClick={props.onClick}
+      onClick={clickHandler}
     >
       <Image alt="team logo" className={styles.image} src={teamLogo} />
       <p className={styles.teamName}>{props.name}</p>

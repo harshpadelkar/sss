@@ -30,18 +30,19 @@
 } */
 
 .add-button {
-  width: 15rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 8rem;
+  font-size: 5rem;
   font-weight: bold;
   color: white;
   background-color: rgb(160, 160, 160);
   padding: 5rem;
   border-radius: 100%;
+  position: relative;
 }
 
 .teams div {
@@ -54,9 +55,6 @@
 .teams div p:nth-child(1) {
   font-size: 1.6rem;
   color: rgb(152, 152, 152);
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  font-weight: 600;
 }
 
 .teams div p:nth-child(3) {
@@ -69,8 +67,8 @@
 
 @media (max-width: 33em) {
   .add-button {
-    width: 13rem;
-    height: 13rem;
+    width: 10rem;
+    height: 10rem;
     font-size: 6rem;
   }
 
@@ -82,8 +80,8 @@
 
 @media (max-width: 21em) {
   .add-button {
-    width: 11rem;
-    height: 11rem;
+    width: 10rem;
+    height: 10rem;
     font-size: 5rem;
   }
 

@@ -5,9 +5,11 @@ import TeamsList from "./TeamsList";
 
 const TeamsModal = (props) => {
   return (
-    <Modal>
+    <Modal showModalHandler={props.showModalHandler}>
       <div className={styles.teamHeader}>
-        <p className={styles.closeBtn}>×</p>
+        <div onClick={props.showModalHandler} className={styles.closeBtn}>
+          ×
+        </div>
         <p>Select Team</p>
       </div>
 
@@ -15,7 +17,10 @@ const TeamsModal = (props) => {
         <p>Option 1</p>
         <Button className={styles.buttonAdd}>Create New Team</Button>
         <p>Option 2</p>
-        <TeamsList />
+        <TeamsList
+          teamBHandler={props.teamBHandler}
+          teamAHandler={props.teamAHandler}
+        />
       </div>
     </Modal>
   );

@@ -9,7 +9,15 @@ const TeamsList = (props) => {
   return (
     <ul className={styles.teamsList}>
       {teams.map((team) => (
-        <Team className={styles.team} key={team.id} name={team.name} />
+        <Team
+          teamBHandler={props.teamBHandler}
+          teamAHandler={props.teamAHandler}
+          className={styles.team}
+          id={team.id}
+          key={team.id}
+          name={team.name}
+          logo={team.logo}
+        />
       ))}
     </ul>
   );

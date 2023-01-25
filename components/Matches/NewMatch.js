@@ -1,33 +1,54 @@
-import { Fragment, useState } from "react";
+import { Fragment, use, useState } from "react";
 import TeamsModal from "../TeamsData/TeamsModal";
 import Input from "../UI/Input";
 import StickyButton from "../UI/StickyButton";
 import styles from "./NewMatch.module.css";
+import Image from "next/image";
 
 const NewMatch = (props) => {
   const [isShowModal, setIsShowModal] = useState(false);
+  const [teamA, setTeamA] = useState(null);
+  const [teamB, setTeamB] = useState(null);
 
   const showModalHandler = () => {
-    setIsShowModal(true);
+    setIsShowModal(!isShowModal);
+  };
+
+  const teamAHandler = (team) => {
+    setTeamA(team);
+    showModalHandler();
+  };
+
+  const teamBHandler = (team) => {
+    setTeamB(team);
+    showModalHandler();
   };
 
   return (
     <Fragment>
-      {isShowModal && <TeamsModal />}
+      {isShowModal && (
+        <TeamsModal
+          teamAHandler={teamAHandler}
+          teamBHandler={teamBHandler}
+          showModalHandler={showModalHandler}
+        />
+      )}
 
       <form className={styles.form}>
         <div className={styles.teams}>
           <div id="FirstTeam">
             <p className={styles["select-team"]}>Select Team</p>
             <span onClick={showModalHandler} className={styles["add-button"]}>
-              +
+              {teamA ? <Image alt="team logo" fill src={teamA.logo} /> : "+"}
             </span>
-            <p>Team A</p>
+            <p>{teamA ? teamA.name : "Team A"}</p>
           </div>
           <div id="SecondTeam">
             <p className={styles["select-team"]}>Select Team</p>
-            <span className={styles["add-button"]}>+</span>
-            <p>Team A</p>
+            <span onClick={showModalHandler} className={styles["add-button"]}>
+              +
+            </span>
+            <p>{teamB ? teamB.name : "Team B"}</p>
           </div>
         </div>
 
