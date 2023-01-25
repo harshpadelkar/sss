@@ -5,8 +5,10 @@ import Image from "next/image";
 
 const Team = (props) => {
   const clickHandler = () => {
-    props.teamAHandler({ name: props.name, id: props.id, logo: teamLogo });
-    props.teamBHandler({ name: props.name, id: props.id, logo: teamLogo });
+    props.teamAHandler &&
+      props.teamAHandler({ name: props.name, id: props.id, logo: teamLogo });
+    props.teamBHandler &&
+      props.teamBHandler({ name: props.name, id: props.id, logo: teamLogo });
   };
 
   return (

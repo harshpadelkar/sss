@@ -3,7 +3,7 @@ import styles from "./Backdrop.module.css";
 
 const Backdrop = (props) => {
   return (
-    <div onClick={props.showModalHandler} className={styles.backdrop}></div>
+    <div onClick={props.showModalHandlerA} className={styles.backdrop}></div>
   );
 };
 

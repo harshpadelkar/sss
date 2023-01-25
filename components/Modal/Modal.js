@@ -10,7 +10,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       <ModalWindow>{props.children}</ModalWindow>
-      <Backdrop showModalHandler={props.showModalHandler} />
+      <Backdrop showModalHandlerA={props.showModalHandlerA} />
     </Fragment>
   );
 };

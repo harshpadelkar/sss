@@ -6,31 +6,43 @@ import styles from "./NewMatch.module.css";
 import Image from "next/image";
 
 const NewMatch = (props) => {
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowModalA, setIsShowModalA] = useState(false);
+  const [isShowModalB, setIsShowModalB] = useState(false);
   const [teamA, setTeamA] = useState(null);
   const [teamB, setTeamB] = useState(null);
 
-  const showModalHandler = () => {
-    setIsShowModal(!isShowModal);
+  const showModalHandlerA = () => {
+    setIsShowModalA(!isShowModalA);
+  };
+
+  const showModalHandlerB = () => {
+    setIsShowModalB(!isShowModalB);
   };
 
   const teamAHandler = (team) => {
     setTeamA(team);
-    showModalHandler();
+
+    showModalHandlerA();
   };
 
   const teamBHandler = (team) => {
     setTeamB(team);
-    showModalHandler();
+
+    showModalHandlerB();
   };
 
   return (
     <Fragment>
-      {isShowModal && (
+      {isShowModalA && (
         <TeamsModal
           teamAHandler={teamAHandler}
+          showModalHandlerA={showModalHandlerA}
+        />
+      )}
+      {isShowModalB && (
+        <TeamsModal
           teamBHandler={teamBHandler}
-          showModalHandler={showModalHandler}
+          showModalHandlerB={showModalHandlerB}
         />
       )}
 
@@ -38,15 +50,15 @@ const NewMatch = (props) => {
         <div className={styles.teams}>
           <div id="FirstTeam">
             <p className={styles["select-team"]}>Select Team</p>
-            <span onClick={showModalHandler} className={styles["add-button"]}>
-              {teamA ? <Image alt="team logo" fill src={teamA.logo} /> : "+"}
+            <span onClick={showModalHandlerA} className={styles["add-button"]}>
+              {teamA ? <Image alt="Team Logo" src={teamA.logo} fill /> : "+"}
             </span>
             <p>{teamA ? teamA.name : "Team A"}</p>
           </div>
           <div id="SecondTeam">
             <p className={styles["select-team"]}>Select Team</p>
-            <span onClick={showModalHandler} className={styles["add-button"]}>
-              +
+            <span onClick={showModalHandlerB} className={styles["add-button"]}>
+              {teamB ? <Image alt="Team Logo" src={teamB.logo} fill /> : "+"}
             </span>
             <p>{teamB ? teamB.name : "Team B"}</p>
           </div>

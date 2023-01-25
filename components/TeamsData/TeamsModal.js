@@ -5,9 +5,12 @@ import TeamsList from "./TeamsList";
 
 const TeamsModal = (props) => {
   return (
-    <Modal showModalHandler={props.showModalHandler}>
+    <Modal
+      showModalHandlerA={props.showModalHandlerA}
+      showModalHandlerB={props.showModalHandlerB}
+    >
       <div className={styles.teamHeader}>
-        <div onClick={props.showModalHandler} className={styles.closeBtn}>
+        <div onClick={props.showModalHandlerA} className={styles.closeBtn}>
           ×
         </div>
         <p>Select Team</p>
