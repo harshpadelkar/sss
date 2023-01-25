@@ -1,4 +1,4 @@
-.button {
+/* .button {
   color: white;
   font-size: 2rem;
   width: fit-content;
@@ -10,4 +10,37 @@
   border: none;
   border-radius: 1.2rem;
   background-color: #009788;
+} */
+
+.button {
+  display: block;
+
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  background-color: #009788;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.3s;
+}
+
+@media (max-width: 59em) {
+  .button {
+    padding: 1.4rem 2.8rem;
+  }
+}
+
+@media (max-width: 33em) {
+  .button {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
 }

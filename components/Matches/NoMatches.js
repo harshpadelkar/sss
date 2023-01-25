@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import Button from "../UI/Button";
 import Image from "next/image";
 import DivContainer from "../UI/DivContainer";
+import Link from "next/link";
 
 const NoMatches = (props) => {
   return (
@@ -17,9 +18,9 @@ const NoMatches = (props) => {
         />
         <h1>{props.message}</h1>
         <p>{props.description}</p>
-        <div>
+        <Link href="home/new-match">
           <Button className={styles.addMatchButton}>{props.button}</Button>
-        </div>
+        </Link>
       </div>
     </DivContainer>
   );

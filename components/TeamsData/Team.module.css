@@ -39,4 +39,8 @@
     width: 8rem;
     height: 8rem;
   }
+
+  .teamName {
+    font-size: 1.6rem;
+  }
 }

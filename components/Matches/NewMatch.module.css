@@ -8,28 +8,12 @@
   gap: 5rem;
 }
 
-.form input {
-  border: none;
-  font-size: 2.4rem;
-  width: max-content;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #999;
-}
-
-.form input::placeholder {
-  text-align: center;
-}
-
-.form input:focus {
-  outline: none;
-}
-
 .teams {
   display: flex;
   gap: 10rem;
 }
 
-.teams > div {
+/* .teams > div {
   width: 15rem;
   height: 15rem;
   display: flex;
@@ -43,15 +27,68 @@
   padding: 5rem;
   border-radius: 100%;
   position: relative;
+} */
+
+.add-button {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 8rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(160, 160, 160);
+  padding: 5rem;
+  border-radius: 100%;
 }
 
-.teams > div::after {
-  content: "Select Team";
-  position: absolute;
-  top: -20%;
-  left: 10%;
+.teams div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.teams div p:nth-child(1) {
   font-size: 1.6rem;
   color: rgb(152, 152, 152);
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+.teams div p:nth-child(3) {
+  font-size: 1.6rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+@media (max-width: 33em) {
+  .add-button {
+    width: 13rem;
+    height: 13rem;
+    font-size: 6rem;
+  }
+
+  .teams {
+    display: flex;
+    gap: 8rem;
+  }
+}
+
+@media (max-width: 21em) {
+  .add-button {
+    width: 11rem;
+    height: 11rem;
+    font-size: 5rem;
+  }
+
+  .teams {
+    display: flex;
+    gap: 6rem;
+  }
 }

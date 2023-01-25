@@ -5,7 +5,10 @@ import Image from "next/image";
 
 const Team = (props) => {
   return (
-    <li className={styles.team} onClick={props.onClick}>
+    <li
+      className={props.className ? props.className : styles.team}
+      onClick={props.onClick}
+    >
       <Image alt="team logo" className={styles.image} src={teamLogo} />
       <p className={styles.teamName}>{props.name}</p>
     </li>

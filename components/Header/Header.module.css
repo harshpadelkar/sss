@@ -71,7 +71,7 @@
 @media (max-width: 59em) {
   .btn-mobile-nav {
     display: block;
-    z-index: 9999;
+    z-index: 5;
     order: -1;
   }
 

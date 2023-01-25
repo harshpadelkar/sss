@@ -1,19 +1,24 @@
+.team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
 .teamsList {
   list-style: none;
   max-height: 50rem;
-  overflow: scroll;
+  overflow-y: scroll;
+  padding: 2rem 0;
+}
+
+.teamsList::-webkit-scrollbar {
+  display: none;
 }
 
 .teamsList li img {
   width: 4rem;
   height: 4rem;
-}
-
-.teamsList li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  cursor: pointer;
-  margin-bottom: 2rem;
 }

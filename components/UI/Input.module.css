@@ -1,0 +1,29 @@
+.input {
+  border: none;
+  font-size: 2.4rem;
+  width: max-content;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #999;
+}
+
+.input::placeholder {
+  text-align: center;
+}
+
+.input:focus {
+  outline: none;
+}
+
+@media (max-width: 33em) {
+  .input {
+    font-size: 1.8rem;
+    width: max-content;
+  }
+}
+
+@media (max-width: 21em) {
+  .form input {
+    font-size: 1.8rem;
+    padding: 0.8rem 2rem;
+  }
+}

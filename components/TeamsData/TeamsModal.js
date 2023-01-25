@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./TeamsModal.module.css";
 import Modal from "../Modal/Modal";
 import Button from "../UI/Button";
