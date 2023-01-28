@@ -8,7 +8,7 @@ const TeamsList = (props) => {
 
   return (
     <ul className={styles.teamsList}>
-      {teams.map((team) => (
+      {teams.teams.map((team) => (
         <Team
           teamBHandler={props.teamBHandler}
           teamAHandler={props.teamAHandler}

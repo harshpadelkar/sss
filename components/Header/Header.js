@@ -5,39 +5,9 @@ import logo from "../assets/logo.png";
 import Image from "next/image";
 import MenuIcon from "../assets/MenuIcon";
 
-const initialActiveState = {
-  matches: true,
-  teams: false,
-  tournament: false,
-};
-
-const activeReducer = (state, action) => {
-  if (action === "teams") {
-    return {
-      matches: false,
-      teams: true,
-      tournament: false,
-    };
-  }
-
-  if (action === "tournament") {
-    return {
-      matches: false,
-      teams: false,
-      tournament: true,
-    };
-  }
-
-  return initialActiveState;
-};
-
 const Header = (props) => {
   const NavigationRef = useRef();
   const [isShowNav, setIsShowNav] = useState(false);
-  const [activeState, dispatchActiveState] = useReducer(
-    activeReducer,
-    initialActiveState
-  );
 
   useEffect(() => {
     const navHeight = NavigationRef.current.clientHeight;

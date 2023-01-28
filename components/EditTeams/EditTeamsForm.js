@@ -10,7 +10,7 @@ const EditTeamsForm = (props) => {
   return (
     <div className={styles.teams}>
       <ul className={styles["team-list"]}>
-        {teams.map((team) => (
+        {teams.teams.map((team) => (
           <Team key={team.id} name={team.name} />
         ))}
       </ul>

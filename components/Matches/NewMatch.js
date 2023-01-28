@@ -1,13 +1,17 @@
-import { Fragment, use, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import TeamsModal from "../TeamsData/TeamsModal";
 import Input from "../UI/Input";
 import StickyButton from "../UI/StickyButton";
 import styles from "./NewMatch.module.css";
 import Image from "next/image";
+import ErrorModal from "../UI/ErrorModal";
 
 const NewMatch = (props) => {
+  const oversRef = useRef();
+  const wicketsRef = useRef();
   const [isShowModalA, setIsShowModalA] = useState(false);
   const [isShowModalB, setIsShowModalB] = useState(false);
+  const [isError, setIsError] = useState(null);
   const [teamA, setTeamA] = useState(null);
   const [teamB, setTeamB] = useState(null);
 
@@ -21,14 +25,33 @@ const NewMatch = (props) => {
 
   const teamAHandler = (team) => {
     setTeamA(team);
-
     showModalHandlerA();
   };
 
   const teamBHandler = (team) => {
     setTeamB(team);
-
     showModalHandlerB();
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const enteredOvers = oversRef.current.value;
+    const enteredWickets = wicketsRef.current.value;
+
+    if (teamA.id === teamB.id) {
+      setIsError("Please select the different teams to proceed");
+      return;
+    }
+
+    const matchdata = {
+      firstTeam: teamA,
+      secondTeam: teamB,
+      enteredOvers,
+      enteredWickets,
+    };
+
+    console.log(matchdata);
   };
 
   return (
@@ -45,8 +68,9 @@ const NewMatch = (props) => {
           showModalHandlerB={showModalHandlerB}
         />
       )}
+      {isError && <ErrorModal>{isError}</ErrorModal>}
 
-      <form className={styles.form}>
+      <form onSubmit={formSubmitHandler} className={styles.form}>
         <div className={styles.teams}>
           <div id="FirstTeam">
             <p className={styles["select-team"]}>Select Team</p>
@@ -65,6 +89,7 @@ const NewMatch = (props) => {
         </div>
 
         <Input
+          ref={oversRef}
           input={{
             id: styles.overs,
             min: "1",
@@ -73,6 +98,7 @@ const NewMatch = (props) => {
           }}
         />
         <Input
+          ref={wicketsRef}
           input={{
             id: styles.wickets,
             min: "1",

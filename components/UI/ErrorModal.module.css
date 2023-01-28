@@ -1,0 +1,18 @@
+.error {
+  padding: 4rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 75em) {
+  .error {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .error {
+    padding: 2.5rem;
+    font-size: 1.8rem;
+  }
+}
