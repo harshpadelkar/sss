@@ -24,18 +24,26 @@ const Modal = (props) => {
               backgroundColor: props.type === "Error" ? "red" : "#009788",
             }}
           >
-            <div onClick={props.onClick} className={styles.closeBtn}>
+            <div
+              onClick={() => {
+                props.onClick && props.onClick();
+                props.showTossHandler && props.showTossHandler();
+              }}
+              className={styles.closeBtn}
+            >
               ×
             </div>
             <p>{props.type}</p>
           </div>
-          {props.children}
+          <div className={styles.container}>{props.children}</div>
         </div>
       </div>
 
       <Backdrop
+        onClick={props.onClick}
         showModalHandlerA={props.showModalHandlerA}
         showModalHandlerB={props.showModalHandlerB}
+        showTossHandler={props.showTossHandler}
       />
     </Fragment>
   );

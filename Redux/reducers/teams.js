@@ -27,12 +27,12 @@ const teamsSlice = createSlice({
   name: "teams",
   initialState,
   reducers: {
-    ADD(state, action) {
-      state.teams.concat(action.team);
+    ADD_TEAM(state, action) {
+      state.teams.concat(action.payload);
     },
   },
 });
 
-export const { ADD } = teamsSlice.actions;
+export const { ADD_TEAM } = teamsSlice.actions;
 
 export default teamsSlice.reducer;

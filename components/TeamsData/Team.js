@@ -4,11 +4,11 @@ import teamLogo from "../assets/team-logo.png";
 import Image from "next/image";
 
 const Team = (props) => {
+  const team = { name: props.name, id: props.id, logo: teamLogo };
+
   const clickHandler = () => {
-    props.teamAHandler &&
-      props.teamAHandler({ name: props.name, id: props.id, logo: teamLogo });
-    props.teamBHandler &&
-      props.teamBHandler({ name: props.name, id: props.id, logo: teamLogo });
+    props.teamAHandler && props.teamAHandler(team);
+    props.teamBHandler && props.teamBHandler(team);
   };
 
   return (

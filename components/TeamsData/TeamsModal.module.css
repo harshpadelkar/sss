@@ -1,7 +1,3 @@
-.options {
-  padding: 4rem;
-}
-
 .options p {
   font-size: 2.2rem;
   font-weight: 600;
@@ -16,10 +12,6 @@
   .options p {
     font-size: 2.2rem;
     font-weight: 500;
-  }
-
-  .options {
-    padding: 3rem;
   }
 }
 

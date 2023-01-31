@@ -1,19 +1,33 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useReducer, useRef, useState } from "react";
 import TeamsModal from "../TeamsData/TeamsModal";
 import Input from "../UI/Input";
 import StickyButton from "../UI/StickyButton";
 import styles from "./NewMatch.module.css";
 import Image from "next/image";
 import ErrorModal from "../UI/ErrorModal";
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_MATCH } from "../../Redux/reducers/matches";
+import TossModal from "../Modal/TossModal";
 
 const NewMatch = (props) => {
+  const [matchData, setMatchData] = useState();
+
   const oversRef = useRef();
   const wicketsRef = useRef();
-  const [isShowModalA, setIsShowModalA] = useState(false);
-  const [isShowModalB, setIsShowModalB] = useState(false);
-  const [isError, setIsError] = useState(null);
+
   const [teamA, setTeamA] = useState(null);
+  const [isShowModalA, setIsShowModalA] = useState(false);
+
   const [teamB, setTeamB] = useState(null);
+  const [isShowModalB, setIsShowModalB] = useState(false);
+
+  const [isShowModalToss, SetIsShowModalToss] = useState(false);
+
+  const [isError, setIsError] = useState(null);
+
+  /////////////////////////////////////
+  /////////////Functions///////////////
+  /////////////////////////////////////
 
   const showModalHandlerA = () => {
     setIsShowModalA(!isShowModalA);
@@ -33,25 +47,51 @@ const NewMatch = (props) => {
     showModalHandlerB();
   };
 
+  const showErrorHandler = () => {
+    setIsError(null);
+  };
+
+  const showTossHandler = () => {
+    SetIsShowModalToss(!isShowModalToss);
+  };
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
     const enteredOvers = oversRef.current.value;
+    const enteredOversNumber = +enteredOvers;
     const enteredWickets = wicketsRef.current.value;
+    const enteredWicketsNumber = +enteredWickets;
+
+    if (enteredOvers == "" || enteredWickets === "") {
+      setIsError("Please provide the complete details to start the match");
+      return;
+    } else if (!teamA || !teamB) {
+      setIsError("Please select both the teams");
+      return;
+    }
 
     if (teamA.id === teamB.id) {
       setIsError("Please select the different teams to proceed");
       return;
     }
 
-    const matchdata = {
+    if (enteredOversNumber < 1 || enteredWicketsNumber < 1) {
+      setIsError("Number of overs and wickets must be above or equal 1");
+      return;
+    }
+
+    SetIsShowModalToss(!isShowModalToss);
+
+    const matchdataEl = {
       firstTeam: teamA,
       secondTeam: teamB,
-      enteredOvers,
-      enteredWickets,
+      enteredOvers: enteredOversNumber,
+      enteredWickets: enteredWicketsNumber,
     };
 
-    console.log(matchdata);
+    setMatchData(matchdataEl);
+    console.log(matchData);
   };
 
   return (
@@ -68,7 +108,15 @@ const NewMatch = (props) => {
           showModalHandlerB={showModalHandlerB}
         />
       )}
-      {isError && <ErrorModal>{isError}</ErrorModal>}
+      {isError && <ErrorModal onClick={showErrorHandler}>{isError}</ErrorModal>}
+      {isShowModalToss && (
+        <TossModal
+          matchData={matchData}
+          showTossHandler={showTossHandler}
+          teamA={teamA}
+          teamB={teamB}
+        />
+      )}
 
       <form onSubmit={formSubmitHandler} className={styles.form}>
         <div className={styles.teams}>
@@ -92,7 +140,6 @@ const NewMatch = (props) => {
           ref={oversRef}
           input={{
             id: styles.overs,
-            min: "1",
             type: "number",
             placeholder: "Overs",
           }}
@@ -101,7 +148,6 @@ const NewMatch = (props) => {
           ref={wicketsRef}
           input={{
             id: styles.wickets,
-            min: "1",
             type: "number",
             placeholder: "Wickets",
           }}

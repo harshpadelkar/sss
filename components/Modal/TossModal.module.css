@@ -1,0 +1,60 @@
+.winner,
+.decision {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.winner div,
+.decision h3 {
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 1px solid #555;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ededed;
+}
+
+.error {
+  font-size: 1.6rem;
+  color: red;
+  grid-column: 1 / -1;
+}
+
+.decision h3 {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  color: #111;
+}
+
+.winner p:first-child,
+.decision p:first-child {
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 22em) {
+  .winner li img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .winner,
+  .decision {
+    margin-bottom: 4rem;
+  }
+
+  .winner li p {
+    font-size: 1.5rem;
+  }
+
+  .winner p:first-child {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

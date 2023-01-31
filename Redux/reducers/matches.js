@@ -1,49 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    id: "m1",
-    firstTeam: "Kanjur",
-    secondTeam: "Bhandup",
-    overs: "2",
-    winner: "Kanjur",
-    choose: "bat",
-    date: "25/05/2022",
-    time: "21:36:4",
-    status: "pending",
-  },
-  {
-    id: "m2",
-    firstTeam: "Kanjur",
-    secondTeam: "Bhandup",
-    overs: "0",
-    role: "bat",
-    date: "25/05/2022",
-    time: "21:36:4",
-    staus: "completed",
-  },
-  {
-    id: "m3",
-    firstTeam: "Kanjur",
-    secondTeam: "Santakruz",
-    overs: "0",
-    role: "bat",
-    date: "25/05/2022",
-    time: "21:36:4",
-    status: "pending",
-  },
-];
+const initialState = {
+  matches: [],
+};
 
-const teamsSlice = createSlice({
+const matchSlice = createSlice({
   name: "matches",
   initialState,
   reducers: {
-    ADD(state, action) {
-      state.teams.concat(action.team);
+    ADD_MATCH(state, action) {
+      state.matches.push(action.payload);
     },
   },
 });
 
-export const { ADD } = teamsSlice.actions;
+export const { ADD_MATCH } = matchSlice.actions;
 
-export default teamsSlice.reducer;
+export default matchSlice.reducer;

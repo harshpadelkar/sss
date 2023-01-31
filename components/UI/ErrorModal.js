@@ -4,7 +4,7 @@ import Modal from "../Modal/Modal";
 
 const ErrorModal = (props) => {
   return (
-    <Modal type="Error">
+    <Modal onClick={props.onClick} type="Error">
       <p className={styles.error}>{props.children}</p>
     </Modal>
   );

@@ -11,6 +11,10 @@
   animation: slide-down 300ms ease-out forwards;
 }
 
+.container {
+  padding: 4rem;
+}
+
 .modal::-webkit-scrollbar {
   display: none;
 }
@@ -43,12 +47,22 @@
     font-size: 2rem;
     gap: 2.5rem;
   }
+
+  .container {
+    padding: 3rem;
+  }
 }
 
 @media (max-width: 33em) {
   .modal {
     width: 90%;
     left: 5%;
+  }
+}
+
+@media (max-width: 33em) {
+  .container {
+    padding: 2rem;
   }
 }
 
