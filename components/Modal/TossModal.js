@@ -1,4 +1,6 @@
-import React, { useReducer } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_MATCH } from "../../Redux/reducers/matches";
 import useOptionsReducer from "../Hooks/use-options";
@@ -43,9 +45,12 @@ const TossModal = (props) => {
       return;
     }
 
+    const id = `m${matches.matches.length + 1}`;
+
     const matchData = {
       ...props.matchData,
-      id: `m${matches.matches.length + 1}`,
+      id: id,
+      matchNumber: matches.matches.length + 1,
       tossWinner: tossWinner.value,
       choose: elelctedTo.value,
       status: "Pending",
@@ -55,11 +60,12 @@ const TossModal = (props) => {
 
     dispatch(ADD_MATCH(matchData));
 
+    console.log(matches);
     props.showTossHandler();
   };
 
   return (
-    <Modal showTossHandler={props.showTossHandler}>
+    <Modal onClick={props.showTossHandler}>
       <div className={styles.winner}>
         <p>Who wan the toss?</p>
         <div
@@ -107,9 +113,11 @@ const TossModal = (props) => {
         )}
       </div>
 
-      <Button onClick={formSubmitHandler} style={{ margin: "0 auto" }}>
-        Start Scoring
-      </Button>
+      <Link href={`/home/new-match/m1`}>
+        <Button onClick={formSubmitHandler} style={{ margin: "0 auto" }}>
+          Start Scoring
+        </Button>
+      </Link>
     </Modal>
   );
 };

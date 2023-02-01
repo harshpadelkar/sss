@@ -1,25 +1,47 @@
 import React from "react";
-import Button from "../UI/Button";
 import styles from "./Match.module.css";
+import Image from "next/image";
+import teamLogo from "../assets/team-logo.png";
+import Button from "../UI/Button";
 
 const Match = (props) => {
   return (
-    <li className={styles.match}>
-      <div className={styles.strip}>
-        <div className={styles.type}>Match No. {props.matchNumber}</div>
-        <div className={styles.status}>Ongoing</div>
+    <div className={styles.match}>
+      <div className={styles.header}>
+        <div className={styles.status}>Live</div>
+        <div className={styles.tournament}>Match no. {props.matchNumber}</div>
       </div>
 
-      <div className={styles.details}>
-        <p>
-          Started at {props.date} {props.time}
-        </p>
-        <p>
-          <span>{props.firstTeam}</span> VS <span>{props.secondTeam}</span>
-        </p>
-        <Button className={`${styles.button}`}>Edit</Button>
+      <div className={styles.content}>
+        <div className={styles.team}>
+          <div className={styles["team-logo"]}>
+            <Image alt="Team Logo" src={teamLogo} />
+          </div>
+          <h2 className={styles["team-name"]}>{props.firstTeam}</h2>
+        </div>
+
+        <div className={styles.details}>
+          <div className={styles.date}>
+            12 Aug at <strong>19:00</strong>
+          </div>
+
+          <div className={styles.score}>
+            <span>20/3</span>
+            <span className={styles.divider}>:</span>
+            <span>29/1</span>
+          </div>
+
+          <button className={styles.button}>Edit</button>
+        </div>
+
+        <div className={styles.team}>
+          <div className={styles["team-logo"]}>
+            <Image alt="Team Logo" src={teamLogo} />
+          </div>
+          <h2 className={styles["team-name"]}>{props.secondTeam}</h2>
+        </div>
       </div>
-    </li>
+    </div>
   );
 };
 

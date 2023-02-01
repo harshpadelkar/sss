@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  max-width: 50rem;
+
+  margin: 0 auto;
+}
+
+.form div:first-child input {
+  margin-bottom: 2rem;
+}
+
+.error {
+  font-size: 1.6rem;
+  color: red;
+  grid-column: 1 / -1;
+  text-align: center;
+}

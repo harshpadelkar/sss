@@ -8,8 +8,8 @@
   margin: 6rem auto;
 
   padding: 6rem;
-  color: #fac02e;
   font-size: 1.8rem;
+  color: #fac02e;
 
   background-color: #20232a;
   border-radius: 10px;
@@ -18,10 +18,10 @@
 
 .form input {
   border: none;
-  font-size: 2.4rem;
   width: 100%;
-  max-width: 30rem;
-  padding: 1.5rem 2rem;
+  font-size: 1.6rem;
+  max-width: 40rem;
+  padding: 1rem 1.5rem;
   color: #fff;
   border-bottom: 2px solid #fac02e;
   background-color: #20232a;
@@ -30,6 +30,10 @@
 .form input,
 .form label {
   display: block;
+}
+
+.form label {
+  margin-bottom: 0.5rem;
 }
 
 .form input:focus {
@@ -48,5 +52,10 @@
 
   .form .create-btn {
     font-size: 1.8rem;
+  }
+
+  .form input {
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
   }
 }

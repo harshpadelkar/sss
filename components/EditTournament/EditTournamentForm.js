@@ -1,55 +1,86 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import Card from "../UI/Card";
 import styles from "./EditTournamentForm.module.css";
 import Button from "../UI/Button";
 import DivContainer from "../UI/DivContainer";
+import { useDispatch, useSelector } from "react-redux";
+import { CHANGE_TOURNAMENT_DETAILS } from "../../Redux/reducers/tournament";
+import ErrorModal from "../UI/ErrorModal";
 
 function EditTournamentForm(props) {
-  // const titleInputRef = useRef();
-  // const imageInputRef = useRef();
-  // const addressInputRef = useRef();
-  // const descriptionInputRef = useRef();
+  const tournament = useSelector((state) => state.tournament.tournament);
+  const dispatch = useDispatch();
 
-  // function submitHandler(event) {
-  //   event.preventDefault();
+  const [hasError, setHasError] = useState(null);
 
-  //   const enteredTitle = titleInputRef.current.value;
-  //   const enteredImage = imageInputRef.current.value;
-  //   const enteredAddress = addressInputRef.current.value;
-  //   const enteredDescription = descriptionInputRef.current.value;
+  const tournamentInputRef = useRef();
+  const placeInputRef = useRef();
+  const squadLimitInputRef = useRef();
 
-  //   const meetupData = {
-  //     title: enteredTitle,
-  //     image: enteredImage,
-  //     address: enteredAddress,
-  //     description: enteredDescription,
-  //   };
+  const resetError = () => {
+    setHasError(null);
+  };
 
-  //   props.onAddMeetup(meetupData);
+  function submitHandler(event) {
+    event.preventDefault();
+
+    const enteredTournament = tournamentInputRef.current.value;
+    const enteredPlace = placeInputRef.current.value;
+    const enteredSqaudLimit = +squadLimitInputRef.current.value;
+
+    if (
+      enteredTournament === "" ||
+      enteredPlace === "" ||
+      enteredSqaudLimit < 1
+    ) {
+      setHasError(`Please don't keep any field empty`);
+      return;
+    }
+
+    const data = {
+      name: enteredTournament,
+      place: enteredPlace,
+      squadLimit: enteredSqaudLimit,
+    };
+
+    dispatch(CHANGE_TOURNAMENT_DETAILS(data));
+  }
 
   return (
     <DivContainer>
-      <div className={styles.container}>
-        <form className={styles.form}>
-          <div className={styles.input}>
-            <label>Tournament Name *</label>
-            <input type="text" />
-          </div>
+      {hasError && <ErrorModal onClick={resetError}>{hasError}</ErrorModal>}
+      <form onSubmit={submitHandler} className={styles.form}>
+        <div className={styles.input}>
+          <label>Tournament Name *</label>
+          <input
+            defaultValue={tournament.name}
+            ref={tournamentInputRef}
+            type="text"
+          />
+        </div>
 
-          <div className={styles.input}>
-            <label>Place Name *</label>
-            <input type="text" />
-          </div>
+        <div className={styles.input}>
+          <label>Place Name *</label>
+          <input
+            defaultValue={tournament.place}
+            ref={placeInputRef}
+            type="text"
+          />
+        </div>
 
-          <div className={styles.input}>
-            <label>Squad Limit *</label>
-            <input min="0" type="number" />
-          </div>
+        <div className={styles.input}>
+          <label>Squad Limit *</label>
+          <input
+            defaultValue={tournament.squadLimit}
+            ref={squadLimitInputRef}
+            min="0"
+            type="number"
+          />
+        </div>
 
-          <Button className={styles["create-btn"]}>Update Details</Button>
-        </form>
-      </div>
+        <Button className={styles["create-btn"]}>Update Details</Button>
+      </form>
     </DivContainer>
   );
 }

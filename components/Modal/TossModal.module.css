@@ -18,12 +18,6 @@
   background-color: #ededed;
 }
 
-.error {
-  font-size: 1.6rem;
-  color: red;
-  grid-column: 1 / -1;
-}
-
 .decision h3 {
   font-size: 2rem;
   padding: 1rem;

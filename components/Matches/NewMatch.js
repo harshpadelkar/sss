@@ -5,11 +5,13 @@ import StickyButton from "../UI/StickyButton";
 import styles from "./NewMatch.module.css";
 import Image from "next/image";
 import ErrorModal from "../UI/ErrorModal";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_MATCH } from "../../Redux/reducers/matches";
+import { useSelector } from "react-redux";
 import TossModal from "../Modal/TossModal";
 
 const NewMatch = (props) => {
+  const matches = useSelector((state) => state.matches);
+
+  console.log(matches.matches);
   const [matchData, setMatchData] = useState();
 
   const oversRef = useRef();

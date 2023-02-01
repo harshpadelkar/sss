@@ -1,15 +1,16 @@
+.matches-container {
+  height: calc(100vh - 9.6rem);
+}
+
 .matches {
   list-style: none;
   width: 100vw;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 50rem));
+  justify-content: center;
   gap: 2rem;
-  margin: 2rem 2rem;
-}
-
-.matches-container {
-  width: 100vw;
+  padding: 2rem 2rem;
 }
 
 .addMatchButton {

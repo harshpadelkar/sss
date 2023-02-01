@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import NewMatch from "../../components/Matches/NewMatch";
+import NewMatch from "../../../components/Matches/NewMatch";
 
 const NewMatchPage = (props) => {
   return (

@@ -28,7 +28,7 @@ const teamsSlice = createSlice({
   initialState,
   reducers: {
     ADD_TEAM(state, action) {
-      state.teams.concat(action.payload);
+      state.teams.push(action.payload);
     },
   },
 });

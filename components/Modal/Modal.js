@@ -43,7 +43,6 @@ const Modal = (props) => {
         onClick={props.onClick}
         showModalHandlerA={props.showModalHandlerA}
         showModalHandlerB={props.showModalHandlerB}
-        showTossHandler={props.showTossHandler}
       />
     </Fragment>
   );
