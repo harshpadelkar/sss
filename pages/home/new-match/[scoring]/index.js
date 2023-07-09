@@ -1,5 +1,12 @@
+import { Fragment } from "react";
+import EditScore from "../../../../components/EditScore/EditScore";
+
 const Scoring = (props) => {
-  return <h1>Hellow</h1>;
+  return (
+    <Fragment>
+      <EditScore />
+    </Fragment>
+  );
 };
 
 export default Scoring;

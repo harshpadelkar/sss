@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { Fragment, useState } from "react";
 import { useSelector } from "react-redux";
 import CreateTeamForm from "../TeamsData/CreateTeamForm";
@@ -19,7 +20,9 @@ const EditTeamsForm = (props) => {
       <div className={styles.teams}>
         <ul className={styles["team-list"]}>
           {teams.teams.map((team) => (
-            <Team key={team.id} name={team.name} />
+            <Link key={team.id} href={`/home/edit-teams/${team.id}`}>
+              <Team key={team.id} name={team.name} />
+            </Link>
           ))}
         </ul>
 

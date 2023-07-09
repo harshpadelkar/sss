@@ -1,0 +1,89 @@
+.score-section {
+  width: 100%;
+  height: calc(100vh - 12.6rem);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1fr 3fr 2fr;
+  justify-content: center;
+  /* align-items: center;
+  justify-items: center; */
+  height: 100%;
+}
+
+.battingScore {
+  justify-self: center;
+  align-self: center;
+}
+
+.battingScore > * {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.battingScore h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.battingScore p {
+  font-size: 1.4rem;
+}
+
+.battingScore h1 {
+  font-size: 5rem;
+  color: #009788;
+}
+
+.scoreSummary {
+  width: 100vw;
+  border-top: 1px solid #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.2rem;
+}
+
+.batsmen {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.batsman {
+  font-size: 1.8rem;
+  padding: 1.6rem;
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  border-radius: 1rem;
+}
+
+.batsmanDetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.batsmanDetails button {
+  border: none;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+}
+
+.batsmanDetails p {
+  color: white;
+}

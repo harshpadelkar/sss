@@ -9,6 +9,7 @@ const Team = (props) => {
   const clickHandler = () => {
     props.teamAHandler && props.teamAHandler(team);
     props.teamBHandler && props.teamBHandler(team);
+    props.onClick && props.onClick(team);
   };
 
   return (

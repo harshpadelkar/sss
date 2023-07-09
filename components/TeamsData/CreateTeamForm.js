@@ -7,23 +7,18 @@ import Input from "../UI/Input";
 import styles from "./CreateTeamForm.module.css";
 
 const CreateTeamForm = (props) => {
+  const [isError, setIsError] = useState(null);
   const teams = useSelector((state) => state.teams.teams);
   const dispatch = useDispatch();
 
   const teamNameRef = useRef();
-  const locationRef = useRef();
-
-  const [isError, setIsError] = useState(null);
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
     const enteredTeamName = teamNameRef.current.value;
-    const enteredLocation = locationRef.current.value;
 
-    console.log(enteredTeamName);
-
-    if (enteredTeamName === "") {
+    if (enteredTeamName.trim("") === "") {
       setIsError("Please enter the Team Name");
       return;
     }
@@ -31,7 +26,6 @@ const CreateTeamForm = (props) => {
     const team = {
       id: `t${teams.length + 1}`,
       name: enteredTeamName,
-      players: [],
       logo: null,
     };
 
@@ -53,18 +47,7 @@ const CreateTeamForm = (props) => {
               placeholder: "Team Name",
             }}
           />
-          {isError && <p className={styles.error}>Please add Team Name</p>}
-        </div>
-
-        <div>
-          <Input
-            ref={locationRef}
-            input={{
-              id: styles.location,
-              type: "text",
-              placeholder: "Location",
-            }}
-          />
+          {isError && <p className={styles.error}>{isError}</p>}
         </div>
 
         <Button onClick={formSubmitHandler} type="submit">

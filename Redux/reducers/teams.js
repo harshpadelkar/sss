@@ -5,20 +5,26 @@ const initialState = {
     {
       id: "t1",
       name: "Mumbai Indians",
-      players: ["Raju", "Kanju", "Praju"],
+      players: [],
       logo: null,
+      matchesPlayed: 0,
+      matchesWon: 0,
     },
     {
       id: "t2",
       name: "Royal Chembur",
-      players: ["Sakshi", "Rajesh", "Deodhar"],
+      players: [],
       logo: null,
+      matchesPlayed: 0,
+      matchesWon: 0,
     },
     {
       id: "t3",
       name: "Aslfa XI",
-      players: ["Harsh", "Sudhakar", "Padelkar"],
+      players: [],
       logo: null,
+      matchesPlayed: 0,
+      matchesWon: 0,
     },
   ],
 };
@@ -28,7 +34,15 @@ const teamsSlice = createSlice({
   initialState,
   reducers: {
     ADD_TEAM(state, action) {
-      state.teams.push(action.payload);
+      const team = action.payload;
+      state.teams.push({
+        id: team.id,
+        name: team.name,
+        logo: team.logo,
+        players: [],
+        matchesPlayed: 0,
+        matchesWon: 0,
+      });
     },
   },
 });

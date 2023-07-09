@@ -1,0 +1,28 @@
+.panel {
+  position: relative;
+  border-radius: 0.5rem;
+  background: white;
+  margin: 1rem;
+  box-shadow: 0 0 0.2rem 0 rgb(48, 48, 48, 0.1),
+    0 0.4rem 0.4rem 0 rgb(48, 48, 48, 0.1);
+  cursor: pointer;
+  /* transition: flex 0.5s linear; */
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.playerName {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  font-weight: 500;
+  font-size: 1.9rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+}

@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import EditTeamsForm from "../../components/EditTeams/EditTeamsForm";
+import EditTeamsForm from "../../../components/EditTeams/EditTeamsForm";
 
 const EditTeams = (props) => {
   return (

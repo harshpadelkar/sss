@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_MATCH } from "../../Redux/reducers/matches";
+import { TOGGLE_HEADER } from "../../Redux/reducers/UI";
 import useOptionsReducer from "../Hooks/use-options";
 import Team from "../TeamsData/Team";
 import Button from "../UI/Button";
@@ -10,6 +11,7 @@ import Modal from "./Modal";
 import styles from "./TossModal.module.css";
 
 const TossModal = (props) => {
+  const ui = useSelector((state) => state.ui);
   const matches = useSelector((state) => state.matches);
   const dispatch = useDispatch();
 
@@ -59,6 +61,7 @@ const TossModal = (props) => {
     };
 
     dispatch(ADD_MATCH(matchData));
+    dispatch(TOGGLE_HEADER());
 
     console.log(matches);
     props.showTossHandler();
